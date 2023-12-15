@@ -77,3 +77,24 @@ function getComputerChoice(){
 }
 
 
+// Function that determine the rounds and ouput the last winner 
+function playGame(){
+
+    for (;playerScore !== 5 && computerScore !== 5;){
+        
+        let playerSelection = prompt("Please Enter Your Choice! Rock, Paper, Scissors");
+        getComputerChoice();
+    
+        console.log(playRound(playerSelection, computerSelection));
+    
+        if (playerScore === 5){
+            console.log("Player Won The Game");
+        }
+        
+        else if (computerScore === 5 ){
+            console.log("Computer Won The Game")
+        }
+    }    
+}
+
+playGame()
