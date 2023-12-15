@@ -9,7 +9,7 @@
 let playerScore = 0;
 let computerScore = 0;
 
-
+// The game's rules and score counting
 function playRound(player, computer){
     
     
@@ -59,3 +59,21 @@ function playRound(player, computer){
         return "It's not a choice"
     }
 }
+
+// function that output the random computer choice
+function getComputerChoice(){
+    
+    randomSelection = Math.random()-0.1
+        if (randomSelection <= 0.33){
+            computerSelection = 'rock';
+        }
+        else if (randomSelection <= 0.66 &&  randomSelection > 0.33){
+            computerSelection = 'paper';
+        }
+
+        else {
+            computerSelection = 'scissors';
+        }
+}
+
+
