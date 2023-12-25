@@ -6,9 +6,6 @@
 
 
 
-let playerScore = 0;
-let computerScore = 0;
-
 // The game's rules and score counting
 function playRound(player, computer){
     
@@ -74,18 +71,17 @@ function getComputerChoice(){
         else {
             computerSelection = 'scissors';
         }
-    
 }
 
 function playGame(){
     
-    let playerSelection = prompt("Please Enter Your Choice! Rock, Paper, Scissors");
+    let playerSelection = "";
     getComputerChoice();
 
     console.log(playRound(playerSelection, computerSelection));
 }
 
-// playGame()
+
 
 let gameContainer = document.createElement("div");
 gameContainer.className = "gameContainer";
@@ -111,5 +107,12 @@ options.append(optionOne,optionTwo,optionThree);
 gameContainer.append(options)
 
 document.body.appendChild(gameContainer)
+
+
+
+optionOne.addEventListener("click",playGame);
+
+optionTwo.addEventListener("click",playGame);
+optionThree.addEventListener("click",playGame);
 
 
