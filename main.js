@@ -5,55 +5,46 @@
 // The Game over after someone's score equal 5
 
 
-
+// the variable that contain the result of the round
+let result = "";
 // The game's rules and score counting
 function playRound(player, computer){
     
     
     if (player.toLowerCase() === 'rock' && computer === 'paper'){
-        computerScore++
-        return("You Lost! Paper beats Rock");
+        result = ("You Lost! Paper beats Rock");
     }
 
     else if (player.toLowerCase() === 'rock' && computer === 'scissors'){
-        playerScore++
-        return("You Won! Rock beats Scissors");
+        result =("You Won! Rock beats Scissors");
     }
 
     else if (player.toLowerCase() === 'rock' && computer === 'rock'){
-        return("It's a Tie");
+        result = ("It's a Tie");
     }
 
     else if (player.toLowerCase() === 'paper' && computer === 'scissors'){
-        computerScore++
-        return("You Lost! Scissors beats Paper");
+        result =("You Lost! Scissors beats Paper");
     }
 
     else if (player.toLowerCase() === 'paper' && computer === 'rock'){
-        playerScore++
-        return('You Won! Paper beats Rock')
+        result =('You Won! Paper beats Rock')
     }
 
     else if (player.toLowerCase() === 'paper' && computer === 'paper'){
-        return("It's a Tie");
+        result =("It's a Tie");
     }
 
     else if (player.toLowerCase() === 'scissors' && computer === 'rock'){
-        computerScore++
-        return("You Lost! Rock beats Scissors");
+        result =("You Lost! Rock beats Scissors");
     }
 
     else if (player.toLowerCase() === 'scissors' && computer === 'paper'){
-        playerScore++
-        return("You Won! Scissors beats Paper");
+        result =("You Won! Scissors beats Paper");
     }
 
     else if (player.toLowerCase() === 'scissors' && computer === 'scissors'){
-        return ("It's a Tie");
-    }
-
-    else{
-        return "It's not a choice"
+        result = ("It's a Tie");
     }
 }
 
@@ -73,46 +64,65 @@ function getComputerChoice(){
         }
 }
 
+// Function that let the plaeyr play the game 
+let playerSelection = "";
+let resultBanner = document.createElement("div");
 function playGame(){
     
-    let playerSelection = "";
     getComputerChoice();
-
-    console.log(playRound(playerSelection, computerSelection));
+    (playRound(playerSelection, computerSelection));
+    resultBanner.textContent = result;
+    document.body.append(resultBanner)
 }
 
 
-
+// The div that contain the game 
 let gameContainer = document.createElement("div");
 gameContainer.className = "gameContainer";
 
+// the div that contain the selection buttons
 let options = document.createElement("div");
 options.className = "options"
 
+// the rock button
 let optionOne = document.createElement("button");
 optionOne.className = "rock";
 optionOne.textContent = "Rock"
 
+// the paper button
 let optionTwo = document.createElement("button");
 optionTwo.className = "paper";
 optionTwo.textContent = "Paper"
 
+// the scissors button
 let optionThree = document.createElement("button");
 optionThree.className = "scissors";
 optionThree.textContent = "Scissors"
 
-let body = document.querySelector("body")
+// adding the selection buttons to thier container (options)
 options.append(optionOne,optionTwo,optionThree);
 
+// adding the button container to the game container (gameContainer)
 gameContainer.append(options)
 
+// adding the game container to the page
 document.body.appendChild(gameContainer)
 
 
+// function the let the player select rock and decide the result
+optionOne.onclick = function(){
+    playerSelection = "rock";
+    playGame()
+}
+// function the let the player select paper and decide the result
+optionTwo.onclick = function(){
+    playerSelection = "paper";
+    playGame()
+}
 
-optionOne.addEventListener("click",playGame);
-
-optionTwo.addEventListener("click",playGame);
-optionThree.addEventListener("click",playGame);
-
+// function the let the player select scissors and decide the result
+optionThree.onclick = function(){
+    playerSelection = "scissors";
+    playGame()
+}
 
