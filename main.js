@@ -72,7 +72,7 @@ function playGame(){
     getComputerChoice();
     (playRound(playerSelection, computerSelection));
     resultBanner.textContent = result;
-    document.body.append(resultBanner)
+    gameContainer.append(resultBanner)
 }
 
 
@@ -126,3 +126,31 @@ optionThree.onclick = function(){
     playGame()
 }
 
+// CSS for the page
+// gameContainer.style.height = "1000px";
+gameContainer.style.display = "flex";
+gameContainer.style.flexDirection = "column";
+gameContainer.style.alignItems = "center";
+gameContainer.style.gap = "30px";
+
+
+options.style.display = "flex";
+options.style.gap = "10px";
+
+optionOne.style.width = "150px";
+optionOne.style.height = "80px";
+optionOne.style.fontSize = "25px";
+
+optionTwo.style.width = "150px";
+optionTwo.style.height = "80px";
+optionTwo.style.fontSize = "25px";
+
+optionThree.style.width = "150px";
+optionThree.style.height = "80px";
+optionThree.style.fontSize = "25px";
+
+
+resultBanner.style.display = "flex";
+resultBanner.style.backgroundColor = "pink";
+resultBanner.style.fontSize = "30px";
+resultBanner.style.padding = "15px"
