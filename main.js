@@ -74,27 +74,42 @@ function getComputerChoice(){
         else {
             computerSelection = 'scissors';
         }
+    
 }
 
-
-// Function that determine the rounds and ouput the last winner 
 function playGame(){
+    
+    let playerSelection = prompt("Please Enter Your Choice! Rock, Paper, Scissors");
+    getComputerChoice();
 
-    for (;playerScore !== 5 && computerScore !== 5;){
-        
-        let playerSelection = prompt("Please Enter Your Choice! Rock, Paper, Scissors");
-        getComputerChoice();
-    
-        console.log(playRound(playerSelection, computerSelection));
-    
-        if (playerScore === 5){
-            console.log("Player Won The Game");
-        }
-        
-        else if (computerScore === 5 ){
-            console.log("Computer Won The Game")
-        }
-    }    
+    console.log(playRound(playerSelection, computerSelection));
 }
 
-playGame()
+// playGame()
+
+let gameContainer = document.createElement("div");
+gameContainer.className = "gameContainer";
+
+let options = document.createElement("div");
+options.className = "options"
+
+let optionOne = document.createElement("button");
+optionOne.className = "rock";
+optionOne.textContent = "Rock"
+
+let optionTwo = document.createElement("button");
+optionTwo.className = "paper";
+optionTwo.textContent = "Paper"
+
+let optionThree = document.createElement("button");
+optionThree.className = "scissors";
+optionThree.textContent = "Scissors"
+
+let body = document.querySelector("body")
+options.append(optionOne,optionTwo,optionThree);
+
+gameContainer.append(options)
+
+document.body.appendChild(gameContainer)
+
+
